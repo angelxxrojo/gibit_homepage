@@ -3,6 +3,11 @@ interface Props {
 	title: string;
 }
 
+import Hero from '../components/Hero.astro';
+import Phrase_Main from '../components/sections/Phrase_Main.astro';
+import About_us from '../components/sections/About_us.astro';
+import Services from '../components/sections/Services.astro';
+import Why_us from '../components/sections/Why_us.astro';
 const { title } = Astro.props;
 ---
 
@@ -12,40 +17,67 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
+		<Hero />
+		<Phrase_Main />
+		<About_us />
+		<Services />
+		<Why_us />
+		<div id="app" class="relative h-screen p-2 gap-2">
+			
+		</div>
 		<slot />
 	</body>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
+	
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		font-family: "Satoshi", system-ui, sans-serif;
+		color: #1E1E1E;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	
+	@font-face {
+		font-family: 'Satoshi';
+		src: url('/public/fonts/Satoshi-Light.woff2') format('woff');
+		font-weight: 300;
+		font-style: normal;
+		font-display: swap;
 	}
+	@font-face {
+		font-family: 'Satoshi';
+		src: url('/public/fonts/Satoshi-Regular.woff2') format('woff');
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Satoshi';
+		src: url('/public/fonts/Satoshi-Medium.woff2') format('woff');
+		font-weight: 500;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Satoshi';
+		src: url('/public/fonts/Satoshi-Bold.woff2') format('woff');
+		font-weight: 700;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Satoshi';
+		src: url('/public/fonts/Satoshi-Black.woff2') format('woff2');
+		font-weight: 900;
+		font-style: normal;
+		font-display: swap;
+	}
+
 </style>
